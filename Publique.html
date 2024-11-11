@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicação de Livros - Coffee Story</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        .livro-publicado {
+            margin-bottom: 20px;
+        }
+        .livro-publicado img {
+            width: 100%;
+            height: auto;
+        }
+        .livro-publicado .card-body {
+            text-align: center;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #34495e;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Coffee Story - Venda e Divulgação de Livros</h1>
+        <p>Promovendo o amor pela leitura</p>
+        </header>
+        
+        <nav>
+        <a href="index.html">Início</a>
+        <a href="Livros.html">Livros</a>
+        <a href="Publique.html">Publicar Livro</a>
+        <a href="Contato.html">Contato</a>
+        </nav>
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Publicar um Novo Livro</h2>
+
+        <!-- Formulário de Publicação -->
+        <form id="form-publicar">
+            <div class="form-group">
+                <label for="titulo">Título do Livro</label>
+                <input type="text" id="titulo" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="autor">Autor</label>
+                <input type="text" id="autor" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="preco">Preço</label>
+                <input type="number" id="preco" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao" class="form-control" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="imagem">Imagem do Livro</label>
+                <input type="file" id="imagem" class="form-control" accept="image/*" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Publicar Livro</button>
+        </form>
+
+        <h3 class="text-center mt-5">Livros Publicados</h3>
+
+        <!-- Lista de Livros Publicados -->
+        <div id="livros-publicados" class="row mt-4">
+            <!-- Os livros publicados aparecerão aqui -->
+        </div>
+    </div>
+
+    <script>
+        // Função para tratar a submissão do formulário
+        document.getElementById('form-publicar').addEventListener('submit', function(event) {
+            event.preventDefault(); // Previne o envio normal do formulário
+
+            // Obtendo os dados do formulário
+            const titulo = document.getElementById('titulo').value;
+            const autor = document.getElementById('autor').value;
+            const preco = document.getElementById('preco').value;
+            const descricao = document.getElementById('descricao').value;
+            const imagem = document.getElementById('imagem').files[0];
+
+            // Gerando um nome único para a imagem (caso haja)
+            const imagemURL = URL.createObjectURL(imagem);
+
+            // Criando o HTML do livro publicado
+            const livroHTML = `
+                <div class="col-12 col-md-4 livro-publicado">
+                    <div class="card shadow-sm">
+                        <img src="${imagemURL}" class="card-img-top" alt="${titulo}">
+                        <div class="card-body">
+                            <h5 class="card-title">${titulo}</h5>
+                            <p class="card-text"><strong>Autor:</strong> ${autor}</p>
+                            <p class="card-text"><strong>Preço:</strong> R$ ${preco}</p>
+                            <p class="card-text">${descricao}</p>
+                            <a href="#" class="btn btn-primary">Ver mais</a>
+                            <a href="#" class="btn btn-outline-primary ml-2">Comprar agora</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Inserindo o livro na lista de livros publicados
+            document.getElementById('livros-publicados').insertAdjacentHTML('beforeend', livroHTML);
+
+            // Limpando os campos do formulário
+            document.getElementById('form-publicar').reset();
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
