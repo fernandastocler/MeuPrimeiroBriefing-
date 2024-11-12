@@ -31,6 +31,46 @@
         section {
             padding: 20px;
         }
+        /* Estilos do Carrossel */
+        .carousel-container {
+            width: 100%;
+            max-width: 1000px;
+            height: 400px;
+            margin: 20px auto;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            flex: 0 0 100%;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            padding: 16px;
+            font-weight: bold;
+            font-size: 18px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transform: translateY(-50%);
+            border-radius: 5px;
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
         .content-wrapper {
             display: flex;
             flex-wrap: wrap;
@@ -85,58 +125,90 @@
     <a href="Contato.html">Contato</a>
 </nav>
 
-<section id="home">
-    <div class="content-wrapper">
-        <div class="content-item">
-            <h2>Bem-vindo ao Coffee Story</h2>
-            <p>Nosso objetivo é vender e divulgar livros para amantes da leitura, promovendo um espaço para a venda de livros novos e usados, além de incentivar a leitura através de promoções e recomendações.</p>
-            <a href="Livros.html" class="btn">Veja os Livros</a>
+<main> 
+    <!-- Carrossel -->
+    <div class="carousel-container">
+        <div class="carousel-slide">
+            <img src="img/carrosel1.jpg" alt="Imagem 1">
+            <img src="img/LIVROS.jpg" alt="Imagem 2">
+            <img src="img/vozesnegras].jpg" alt="Imagem 3">
         </div>
-        <div class="content-item">
-            <h2>Por que escolher o Coffee Story?</h2>
-            <ul>
-                <li><strong>Credibilidade</strong>: Estamos no mercado há 9 anos oferecendo qualidade e confiança aos leitores.</li>
-                <li><strong>Promoções</strong>: Oferecemos ótimos custos-benefícios e promoções para nossos clientes.</li>
-                <li><strong>Público Jovem</strong>: Foco em leitores jovens que buscam aprimorar seus conhecimentos.</li>
-            </ul>
-        </div>
+        <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+        <a class="next" onclick="moveSlide(1)">&#10095;</a>
     </div>
-</section>
 
-<section id="livros">
-    <h2>Livros em Destaque</h2>
-    <div class="content-wrapper">
-        <div class="content-item">
-            <img src="img/01 - A Seleção - Kiera Cass_pdf.jpg" alt="Capa do Livro 1">
-            <h3>A Seleção</h3>
-            <p>Muitas garotas sonham em ser princesas, mas este não é o caso de America Singer. Ela topa se inscrever na Seleção só para agradar a mãe, certa de que não será sorteada para participar da competição em que o príncipe escolherá sua futura esposa</p>
-            <a href="#" class="btn">Comprar Agora</a>
+    <section id="home">
+        <div class="content-wrapper">
+            <div class="content-item">
+                <h2>Bem-vindo ao Coffee Story</h2>
+                <p>Nosso objetivo é vender e divulgar livros para amantes da leitura, promovendo um espaço para a venda de livros novos e usados, além de incentivar a leitura através de promoções e recomendações.</p>
+                <a href="Livros.html" class="btn">Veja os Livros</a>
+            </div>
+            <div class="content-item">
+                <h2>Por que escolher o Coffee Story?</h2>
+                <ul>
+                    <li><strong>Credibilidade</strong>: Estamos no mercado há 9 anos oferecendo qualidade e confiança aos leitores.</li>
+                    <li><strong>Promoções</strong>: Oferecemos ótimos custos-benefícios e promoções para nossos clientes.</li>
+                    <li><strong>Público Jovem</strong>: Foco em leitores jovens que buscam aprimorar seus conhecimentos.</li>
+                </ul>
+            </div>
         </div>
-        <div class="content-item">
-            <img src="img/5 livros famosos que estão no hype e valem a leitura » STEAL THE LOOK.jpg" alt="Capa do Livro 2">
-            <h3>Os sete maridos Evelyn Hugo</h3>
-            <p>Com todo o esplendor que só a Hollywood do século passado pode oferecer, esta é uma narrativa inesquecível sobre os sacrifícios que fazemos por amor, o perigo dos segredos e o preço da fama.</p>
-            <a href="#" class="btn">Comprar Agora</a>
-        </div>
-        <div class="content-item">
-            <img src="img/A coroa (A Seleção Livro 5) eBook _ Cass, Kiera, Clemente, Cristian_ Amazon_com.br_ Loja Kindle" alt="Capa do Livro 3">
-            <h3>A coroa</h3>
-            <p>Vinte anos se passaram desde que America Singer e o príncipe Maxon se apaixonaram, e a filha do casal é a primeira princesa a passar por sua própria Seleção. </p>
-            <a href="#" class="btn">Comprar Agora</a>
-        </div>
-    </div>
-</section>
+    </section>
 
-
-<section id="sobre">
-    <h2>Sobre Nós</h2>
-    <p>Somos um site dedicado ao fomento da leitura, com um foco particular no público jovem e nas pessoas que buscam enriquecer seu conhecimento. Criado por Arthur Nascimento, o Coffee Story visa criar uma comunidade de leitores e escritores, oferecendo uma plataforma moderna e fácil de usar.</p>
-</section>
-<br><br>
+    <section id="livros">
+        <h2>Livros em Destaque</h2>
+        <div class="content-wrapper">
+            <div class="content-item">
+                <img src="img/01 - A Seleção - Kiera Cass_pdf.jpg" alt="Capa do Livro 1">
+                <h3>A Seleção</h3>
+                <p>Muitas garotas sonham em ser princesas, mas este não é o caso de America Singer. Ela topa se inscrever na Seleção só para agradar a mãe, certa de que não será sorteada para participar da competição em que o príncipe escolherá sua futura esposa</p>
+                <a href="#" class="btn">Comprar Agora</a>
+            </div>
+            <div class="content-item">
+                <img src="img/5 livros famosos que estão no hype e valem a leitura » STEAL THE LOOK.jpg" alt="Capa do Livro 2">
+                <h3>Os sete maridos Evelyn Hugo</h3>
+                <p>Com todo o esplendor que só a Hollywood do século passado pode oferecer, esta é uma narrativa inesquecível sobre os sacrifícios que fazemos por amor, o perigo dos segredos e o preço da fama.</p>
+                <a href="#" class="btn">Comprar Agora</a>
+            </div>
+            <div class="content-item">
+                <img src="img/A coroa (A Seleção Livro 5) eBook _ Cass, Kiera, Clemente, Cristian_ Amazon_com.br_ Loja Kindle" alt="Capa do Livro 3">
+                <h3>A coroa</h3>
+                <p>Vinte anos se passaram desde que America Singer e o príncipe Maxon se apaixonaram, e a filha do casal é a primeira princesa a passar por sua própria Seleção.</p>
+                <a href="#" class="btn">Comprar Agora</a>
+            </div>
+        </div>
+    </section>
+    <section id="home">
+        <div class="content-wrapper">
+            <div class="content-item">
+                <h2>Sobre Nós</h2>
+                <p>Somos um site dedicado ao fomento da leitura, com um foco particular no público jovem e nas pessoas que buscam enriquecer seu conhecimento. Criado por Arthur Nascimento, o Coffee Story visa criar uma comunidade de leitores e escritores, oferecendo uma plataforma moderna e fácil de usar.</p>
+                <a href="Publique.html" class="btn">Veja como Publicar</a>
+            </div>
+        </section>
+        
+            <h2>Os Melhores</h2>
+            <img src="img/destaque do progama.jpg" alt="Capa do Livro 4">
+            <a href="#" class="btn"></a>
+    </section>
+</main>
 
 <footer>
     <p>&copy; 2024 Coffee Story. Todos os direitos reservados.</p>
 </footer>
+
+<script>
+    let slideIndex = 0;
+    const slides = document.querySelector('.carousel-slide');
+    const totalSlides = slides.children.length;
+
+    function moveSlide(n) {
+        slideIndex += n;
+        if (slideIndex >= totalSlides) slideIndex = 0;
+        if (slideIndex < 0) slideIndex = totalSlides - 1;
+        slides.style.transform = `translateX(${-slideIndex * 100}%)`;
+    }
+</script>
 
 </body>
 </html>
